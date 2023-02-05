@@ -20,8 +20,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@forward "src/resources/css/variables.scss"',
-      },
-    },
+        additionalData: `@import "resources/css/variables.scss";`
+      }
+    }
   },
 });

@@ -22,9 +22,15 @@ export default {
 
 <style scoped lang="scss">
   .st-label {
-    height: 2rem;
-    font-size: 2rem;
+    height: 1.4rem;
+    width: 100%;
 
-    padding: $--st-offset-m;
+    margin: $--st-offset-xs 0;
+  }
+  [color = 'gray'].st-label {
+    color: $--st-gray;
+  }
+  [color = 'black'].st-label {
+    color: $--st-black;
   }
 </style>

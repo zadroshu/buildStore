@@ -1,8 +1,19 @@
 //offsets
 
-$--st-offset-xs: 5px;
-$--st-offset-m: 10px;
-$--st-offset-l: 15px;
-$--st-offset-xl: 20px;
+$--st-offset-xs: 0.5rem;
+$--st-offset-m: 1rem;
+$--st-offset-l: 1.5rem;
+$--st-offset-xl: 2rem;
 
+//colors
+
+$--st-gray: #4F4F4F;
+$--st-black: #000000;
+$--st-input-bg: rgba(239, 239, 239, .6);
+
+//font-sizes
+
+$--st-font-small: 1.2rem;
+$--st-font-medium: 1.4rem;
+$--st-font-large: 2.8rem;
 
