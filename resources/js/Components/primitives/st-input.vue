@@ -1,42 +1,48 @@
 <template>
   <div class="st-input">
     <div class="st-input__body">
-      <st-label v-if="label !== ''" :value="label" color="gray" />
-      <div v-if="type === 'number'" class="st-input__input">
-        <input type="number" min="0" v-model="input" placeholder="введите число..." @input="$emit('input', input)">
+      <st-label v-if="props.label !== ''" :value="props.label" color="gray"/>
+      <div v-if="props.type === 'number'" class="st-input__input">
+        <input v-model="value" type="number" min="0" placeholder="введите число..."
+               @input="$emit('update:value', $event.target.value)"
+        >
       </div>
-      <div v-else-if="type === 'password'" class="st-input__input">
-        <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
-               placeholder="введите пароль..." v-model="input" @input="$emit('input', input)">
+      <div v-else-if="props.type === 'password'" class="st-input__input">
+        <input v-model="value" type="password"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+               placeholder="введите пароль..."
+               @input="$emit('update:value', $event.target.value)"
+        >
       </div>
-      <div v-else-if="type === 'email'" class="st-input__input">
-        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="введите email..."
-               @input="$emit('input', input)">
+      <div v-else-if="props.type === 'email'" class="st-input__input">
+        <input v-model="value" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+               placeholder="введите email..."
+               @input="$emit('update:value', $event.target.value)"
+        >
       </div>
       <div v-else class="st-input__input">
-        <input type="text" placeholder="введите текст..." @input="$emit('input', input)">
+        <input v-model="value" type="text"
+               placeholder="введите текст..."
+               @input="$emit('update:value', $event.target.value)"
+        >
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import StLabel from "@/Components/primitives/st-label.vue";
+import {ref} from "vue";
 
-export default {
-  components: {StLabel},
 
-  props: {
-    label: String | Number,
-    disabled: Boolean,
-    type: 'number' | 'text' | 'phone' | 'email' | 'password',
-  },
-  data() {
-    return {
-      input: '',
-    };
-  },
-}
+const props = defineProps({
+  label: String | Number,
+  disabled: Boolean,
+  type: 'number' | 'text' | 'phone' | 'email' | 'password',
+});
+const emit = defineEmits(['input']);
+
+let value = ref();
 </script>
 
 <style scoped lang="scss">

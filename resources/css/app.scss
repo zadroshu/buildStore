@@ -32,4 +32,8 @@ a:focus { color: orange }
 a:active { color: red }
 a:visited { color: purple }
 
+.st-grid-row {
+  grid-column: 1 / -1;
+}
+
 
