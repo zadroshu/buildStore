@@ -6,6 +6,7 @@
   use App\Models\Product;
   use Illuminate\Http\Request;
   use Inertia\Inertia;
+  use Ramsey\Uuid\Type\Integer;
 
   class ProductController extends Controller
   {
@@ -16,8 +17,10 @@
      */
     public function index()
     {
+      $products =  Product::paginate( 10 );
+
       return Inertia::render('Store/Index', [
-        'products' => Product::all(),
+        'products' => $products
       ]);
     }
 
@@ -48,9 +51,11 @@
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-      return Product::find($id);
+      return [
+        'product' => Product::find($id)
+      ];
     }
 
     /**
@@ -60,11 +65,10 @@
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-      $product = Product::find($id);
 
-      $validate = $request->validate([
+      $validated = $request->validate([
         'name' => 'required|string|max:191',
         'category' => 'required|int',
         'cost' => 'required|int',
@@ -73,15 +77,9 @@
         'img' => 'nullable|string|max:255',
       ]);
 
-      $product->name = $validate['name'];
-      $product->category = $validate['category'];
-      $product->cost = $validate['cost'];
-      $product->discount = $validate['discount'];
-      $product->description = $validate['description'];
-      $product->img = $validate['img'];
+      $product->update($validated);
 
-
-      $product->save();
+      return redirect(route('Store/Index'));
     }
 
     /**

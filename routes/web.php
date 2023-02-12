@@ -26,7 +26,8 @@
   });
 
   Route::resource('products', \App\Http\Controllers\ProductController::class)
-    ->only(['index', 'store']);
+    ->only(['index', 'store'])
+    ->only(['index', 'store', 'update']);
 
   Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
