@@ -12,13 +12,11 @@
 </template>
 
 <script setup>
-import NavLink from "@/Components/NavLink.vue";
+import NavLink from "@/Components/st-pagination-nav-link.vue";
 
 const props = defineProps({
   links: [],
 });
-
-console.log(props.links)
 </script>
 
 <style scoped lang="scss">

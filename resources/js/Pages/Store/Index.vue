@@ -5,10 +5,7 @@
     </div>
 
     <div class="st-app__body">
-      <!--    <update-product :props="props.products.data[1]" />-->
-      <div v-for="product in props.products.data" :key="product.id">
-        {{ product.name }}
-      </div>
+      <st-product-list :products ="props.products.data" />
     </div>
 
     <div class="st-app__footer">
@@ -18,14 +15,15 @@
 </template>
 
 <script setup>
-import ProductForm from "@/Components/ProductForm.vue";
-import UpdateProduct from "@/Pages/Store/UpdateProduct.vue";
 import StPagination from "@/Components/primitives/st-pagination.vue";
+import StProductList from "@/Components/primitives/st-product-list.vue";
 
 const props = defineProps({
   products: Object,
 });
-console.log(props.products.data)
+
+console.log(props.products.data);
+
 
 </script>
 

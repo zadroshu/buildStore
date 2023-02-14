@@ -1,6 +1,6 @@
 <template>
   <div class="st-label">
-    <span>{{value}}</span>
+    <span :color="color">{{value}}</span>
   </div>
 </template>
 
@@ -10,6 +10,7 @@ export default {
   props: {
     value: String | Number,
     disabled: Boolean,
+    color: String,
   },
   data() {
     return {
@@ -31,6 +32,9 @@ export default {
     color: $--st-gray;
   }
   [color = 'black'].st-label {
+    color: $--st-black;
+  }
+  [color = 'white'].st-label {
     color: $--st-black;
   }
 </style>

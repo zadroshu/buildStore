@@ -11,8 +11,8 @@ body {
   font-size: 1.4rem; /* default font of 14px */
   font-family: 'Montserrat', 'Arial', sans-serif;
   line-height: 1.3;
-  color: #000000;
-  background-color: #F1DED4;
+  color: $--st-black;
+  background-color: $--st-bg-sand;
 
   height: 100%;
 }

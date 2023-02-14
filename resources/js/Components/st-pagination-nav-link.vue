@@ -33,12 +33,14 @@ const classes = computed(() =>
 }
 
 .st-link:hover {
-  background-color: $--st-input-bg;
-  cursor: pointer;
+  background-color: $--st-blue;
+  color: $--st-white;
   transition: .2s;
 }
 
 .--selected {
-  color: $--st-red;
+  background-color: $--st-blue;
+  color: $--st-white;
+  transition: .2s;
 }
 </style>
