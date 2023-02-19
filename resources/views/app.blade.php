@@ -15,6 +15,20 @@
   @inertiaHead
 </head>
 <body class="app">
-@inertia
+{{--  @extends('layouts.control')--}}
+<div class="st-app">
+  @section('header')
+    <div class="st-app__header">
+
+    </div>
+  @section('content')
+    <div class="st-app__body">
+      @inertia
+    </div>
+  @section('footer')
+    <div class="st-app__footer">
+
+    </div>
+</div>
 </body>
 </html>

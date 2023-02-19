@@ -20,6 +20,6 @@ const props = defineProps({
   justify-content: center;
   gap: 7rem 5rem;
 
-  padding: 7rem;
+  padding: 3rem;
 }
 </style>

@@ -20,6 +20,7 @@
         $table->unsignedInteger('discount');
         $table->text('description');
         $table->string('img')->nullable();
+        $table->unsignedInteger('in_stock');
         $table->timestamps();
       });
     }

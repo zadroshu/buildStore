@@ -1,7 +1,9 @@
 <template>
   <div class="st-product-card">
     <div class="st-product-card__img-wrapper">
-      <img class="st-product-card__img-wrapper-img" src="https://via.placeholder.com/250x310/09f/fff.png">
+      <Link :href="route('product.show', {id: props.product.id})" >
+        <img class="st-product-card__img-wrapper-img" src="https://via.placeholder.com/250x310/09f/fff.png">
+      </Link>
       <div class="st-product-card__img-add-to-cart">
         <img src="../../../../img/add-to-cart.svg"
              :class="{'st-product-card--hover': isHover}"
@@ -11,6 +13,7 @@
         />
       </div>
     </div>
+
     <st-label :value="props.product.name" color='white'/>
     <st-label :value="props.product.cost"/>
   </div>
@@ -19,6 +22,8 @@
 <script setup>
 import StLabel from "@/Components/primitives/st-label.vue";
 import {ref} from "vue";
+import {Link} from '@inertiajs/vue3';
+import axios from "axios";
 
 const props = defineProps({
   product: Object,
@@ -28,15 +33,20 @@ let isHover = ref(false);
 function addToCart() {
   console.log(props.product);
 }
+function goto() {
+  // console.log(props.product.id);
+  axios.get(route('product.show', { 'id': props.product.id } ));
+  // router.visit(`product/${props.product.id}`, { method: 'post', data: props.product.id })
+
+}
+
 </script>
 
 <style scoped lang="scss">
 
 .st-product-card {
   //width: 28rem;
-  height: 41rem;
-
-  cursor: pointer;
+  //height: 41rem;
 
   &--hover {
     transition: background-color .5s;

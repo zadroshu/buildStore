@@ -23,6 +23,7 @@
         'discount' => $this->faker->numberBetween(0, 1000),
         'description' => $this->faker->text(150),
         'img' => $this->faker->url(),
+        'in_stock' => $this->faker->numberBetween(0, 1000),
       ];
     }
   }

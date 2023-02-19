@@ -5,6 +5,7 @@
   use App\ModelsProduct;
   use App\Models\Product;
   use Illuminate\Http\Request;
+  use Illuminate\Support\Facades\DB;
   use Inertia\Inertia;
   use Ramsey\Uuid\Type\Integer;
 
@@ -53,9 +54,11 @@
      */
     public function show(int $id)
     {
-      return [
-        'product' => Product::find($id)
-      ];
+      $product = Product::where('id', $id)->first();
+
+      return Inertia::render('Store/ProductPage', [
+        'product' => $product
+      ]);
     }
 
     /**
@@ -92,4 +95,5 @@
     {
       //
     }
+
   }
