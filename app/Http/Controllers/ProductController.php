@@ -40,6 +40,7 @@
         'discount' => 'required|int',
         'description' => 'required|string|max:1000',
         'img' => 'nullable|string|max:255',
+        'in_stock' => 'required|int',
       ]);
 
       $product = new Product($validate);
@@ -54,11 +55,7 @@
      */
     public function show(int $id)
     {
-      $product = Product::where('id', $id)->first();
 
-      return Inertia::render('Store/ProductPage', [
-        'product' => $product
-      ]);
     }
 
     /**
@@ -78,6 +75,7 @@
         'discount' => 'required|int',
         'description' => 'required|string|max:1000',
         'img' => 'nullable|string|max:255',
+        'in_stock' => 'required|int',
       ]);
 
       $product->update($validated);

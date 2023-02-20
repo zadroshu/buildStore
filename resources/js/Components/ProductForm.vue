@@ -11,6 +11,7 @@ const form = useForm({
   category: ref(props.product.category ? props.product.category : -1),
   cost: ref(props.product.cost ? props.product.cost : 0),
   discount: ref(props.product.discount ? props.product.discount : 0),
+  in_stock: ref(props.product.in_stock ? props.product.in_stock : 0),
   description: ref(props.product.description ? props.product.description : ''),
   img: ref(props.product.img ? props.product.img : ''),
 });
@@ -25,6 +26,7 @@ const form = useForm({
     <st-input v-model:value="form.category" :label="'Категория'" type="number" />
     <st-input v-model:value="form.cost" :label="'Цена'" type="number" />
     <st-input v-model:value="form.discount" :label="'Скидка'" type="number" />
+    <st-input v-model:value="form.in_stock" :label="'Количество'" type="text" />
     <st-input v-model:value="form.description" :label="'Описание'" type="text" />
     <st-input v-model:value="form.img" :label="'Ссылка на картинку'" type="text" />
 
