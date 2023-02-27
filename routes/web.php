@@ -25,6 +25,8 @@
     ]);
   });
 
+  Route::get('/',[\App\Http\Controllers\ProductController::class, 'index']);
+
   Route::resource('products', \App\Http\Controllers\ProductController::class)
     ->only(['index', 'store', 'update']);
 

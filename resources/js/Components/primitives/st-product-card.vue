@@ -5,11 +5,12 @@
         <img class="st-product-card__img-wrapper-img" src="https://via.placeholder.com/250x310/09f/fff.png">
       </Link>
       <div class="st-product-card__img-add-to-cart">
-        <img src="../../../../img/add-to-cart.svg"
-             :class="{'st-product-card--hover': isHover}"
-             @mouseenter="isHover = true"
-             @mouseleave="isHover = false"
-             @click="addToCart"
+        <img
+          src="../../../images/add-to-cart.svg"
+          :class="{'st-product-card--hover': isHover}"
+          @mouseenter="isHover = true"
+          @mouseleave="isHover = false"
+          @click="addToCart"
         />
       </div>
     </div>

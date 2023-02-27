@@ -15,7 +15,7 @@
       'cost',
       'discount',
       'description',
-      'img',
+      'images',
     ];
 
     public function orders()

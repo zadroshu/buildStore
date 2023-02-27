@@ -29,6 +29,7 @@ ol, ul { padding-left: 2em }
 a {
   text-decoration: none;
   color: $--st-black;
+  cursor: pointer;
 }
 //a:hover { color: pink }
 //a:focus { color: orange }
@@ -57,7 +58,16 @@ a {
     background-color: $--st-white;
     margin-bottom: $--st-offset-xs;
 
+
     flex: 0 0 auto;
+
+    &-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: $--st-offset-xs;
+    }
+
   }
 
   &__body {

@@ -39,7 +39,7 @@
         'cost' => 'required|int',
         'discount' => 'required|int',
         'description' => 'required|string|max:1000',
-        'img' => 'nullable|string|max:255',
+        'images' => 'nullable|string|max:255',
         'in_stock' => 'required|int',
       ]);
 
@@ -74,7 +74,7 @@
         'cost' => 'required|int',
         'discount' => 'required|int',
         'description' => 'required|string|max:1000',
-        'img' => 'nullable|string|max:255',
+        'images' => 'nullable|string|max:255',
         'in_stock' => 'required|int',
       ]);
 
