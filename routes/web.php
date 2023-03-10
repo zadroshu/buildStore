@@ -25,7 +25,7 @@
     ]);
   });
 
-  Route::get('/',[\App\Http\Controllers\ProductController::class, 'index']);
+  Route::get('/',[\App\Http\Controllers\ProductController::class, 'index'])->name('index');
 
   Route::resource('products', \App\Http\Controllers\ProductController::class)
     ->only(['index', 'store', 'update']);
@@ -39,6 +39,10 @@
   Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
   })->middleware(['auth', 'verified'])->name('dashboard');
+
+  Route::get('add-to-cart/{id}', [\App\Http\Controllers\ProductController::class, 'addToCart'])->name('product.to_cart');
+  Route::get('getCart',[\App\Http\Controllers\ProductController::class, 'getCart'])->name('get_cart');
+  Route::get('delete-from-cart/{id}',[\App\Http\Controllers\ProductController::class, 'deleteFromCart'])->name('product.delete_from_cart');
 
   Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

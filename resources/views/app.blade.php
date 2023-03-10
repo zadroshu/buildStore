@@ -23,10 +23,10 @@
         <div class="st-app__header-phone">
           8-961-502-50-40
         </div>
-        <a href="{{ route('dashboard') }} " class="st-app__header-logo">
+        <a href="{{ route('index') }} " class="st-app__header-logo">
           <img src="{{ Vite::asset('resources/images/logo.svg') }}"/>
         </a>
-        <a href="{{ route('dashboard') }} " class="st-app__header-cart">
+        <a href="{{ route('get_cart') }} " class="st-app__header-cart">
           <img src="{{ Vite::asset('resources/images/cart.svg') }}"/>
         </a>
       </div>

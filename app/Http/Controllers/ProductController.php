@@ -18,7 +18,7 @@
      */
     public function index()
     {
-      $products =  Product::paginate( 12 );
+      $products = Product::paginate(12);
 
       return Inertia::render('Store/Index', [
         'products' => $products
@@ -56,6 +56,49 @@
     public function show(int $id)
     {
 
+    }
+
+    public function addToCart($id)
+    {
+      $product = Product::findOrFail($id);
+
+      $cart = session()->get('cart', []);
+
+      if (isset($cart[$id])) {
+        $cart[$id]['quantity']++;
+      } else {
+        $cart[$id] = [
+          "product_id" => $product->id,
+          "quantity" => 1,
+        ];
+      }
+
+      session()->put('cart', $cart);
+    }
+
+    public function getCart()
+    {
+      $cart = session()->get('cart', []);
+      $keys = array_keys($cart);
+
+
+      $products = Product::findMany($keys);
+
+
+      return Inertia::render('Store/Cart', [
+        'products' => $products,
+      ]);
+    }
+
+    public function deleteFromCart($id)
+    {
+      $cart = session()->get('cart');
+      if (($key = array_search($id, $cart)) !== false) {
+        unset($cart[$key]);
+      }
+      session()->put('cart', $cart);
+
+      return Inertia::$cart;
     }
 
     /**

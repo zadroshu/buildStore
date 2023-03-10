@@ -5,6 +5,7 @@ import {createApp, h} from 'vue';
 import {createInertiaApp} from '@inertiajs/vue3';
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m';
+import route from "ziggy-js/src/js";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -15,8 +16,10 @@ createInertiaApp({
     const VueApp = createApp({render: () => h(App, props)})
       .use(plugin)
       .use(ZiggyVue, Ziggy)
-      .mount(el);
 
+    VueApp.config.globalProperties.$route = route;
+
+    VueApp.mount(el);
     return VueApp;
   },
   progress: {

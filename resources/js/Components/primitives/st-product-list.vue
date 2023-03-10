@@ -7,6 +7,7 @@
 <script setup>
 import StProductCard from "@/Components/primitives/st-product-card.vue";
 
+
 const props = defineProps({
   products: Array,
 })

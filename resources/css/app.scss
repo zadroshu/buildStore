@@ -1,3 +1,6 @@
+@import "@vueform/multiselect/themes/default.css";
+@import "@trevoreyre/autocomplete-vue/dist/style.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -53,7 +56,6 @@ a {
 
   &__header {
     width: 100%;
-    height: 7rem;
 
     background-color: $--st-white;
     margin-bottom: $--st-offset-xs;
@@ -65,7 +67,7 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: $--st-offset-xs;
+      margin: $--st-offset-xs $--st-offset-xl;
     }
 
   }
